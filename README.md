@@ -21,18 +21,16 @@ El sistema aplica automáticamente la tasa de comisión correspondiente a cada p
 | Reino Unido     | 12%              | (Ventas - Descuentos) × 0.12     |
 
 ---
-
 ## Arquitectura en capas
 
 El proyecto está organizado en 4 proyectos que representan la separación de responsabilidades:
 
 ```text
 SalesCommPro/
-├── SalesCommPro.Web            <-- Interfaz de Usuario (ASP.NET Core MVC)
-├── SalesCommPro.Application    <-- Objetos de Transferencia de Datos (DTOs)
-├── SalesCommPro.Domain         <-- Entidades y Reglas del Negocio
-└── SalesCommPro.Infrastructure <-- Lógica de Cálculo y Servicios
-
+├── SalesCommPro.Web            <-- Interfaz de Usuario (MVC)
+├── SalesCommPro.Application    <-- DTOs
+├── SalesCommPro.Domain         <-- Entidades del Negocio
+└── SalesCommPro.Infrastructure <-- Servicios (lógica de negocio)
 
 ---
 
