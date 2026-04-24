@@ -1,32 +1,47 @@
 ﻿@model SalesCommPro.Web.Models.CommissionModel
 
-<h2>Sales Commission Calculator</h2>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="width: 400px;">
 
-<form method="post">
+        <h2 class="text-center mb-4">Sales Commission</h2>
 
-    <div asp-validation-summary="All"></div>
+        <form method="post">
 
-    <label>Ventas</label>
-    <input asp-for="Sales" />
+            <div asp-validation-summary="All" class="text-danger mb-2"></div>
 
-    <label>Descuentos</label>
-    <input asp-for="Discount" />
+            <div class="mb-3">
+                <label class="form-label">Ventas</label>
+                <input class="form-control" type="number" step="0.01" asp-for="Sales" placeholder="Ej: 1000" />
+            </div>
 
-    <label>País</label>
-    <select asp-for="Country">
-        <option value="">Seleccione</option>
-        <option>India</option>
-        <option>US</option>
-        <option>UK</option>
-    </select>
+            <div class="mb-3">
+                <label class="form-label">Descuentos</label>
+                <input class="form-control" type="number" step="0.01" asp-for="Discount" placeholder="Ej: 100" />
+            </div>
 
-    <button type="submit">Calcular</button>
-</form>
+            <div class="mb-3">
+                <label class="form-label">País</label>
+                <select class="form-select" asp-for="Country">
+                    <option value="">Seleccione</option>
+                    <option>India</option>
+                    <option>US</option>
+                    <option>UK</option>
+                </select>
+            </div>
 
-@if (Model != null)
-{
-    <h3>Resultado: @Model.Result</h3>
-}
+            <button class="btn btn-primary w-100">Calcular</button>
+        </form>
+
+        @if (Model != null && Model.Result > 0)
+        {
+            <div class="alert alert-success mt-3 text-center">
+                <h5>Comisión</h5>
+                <strong>@Model.Result.ToString("C")</strong>
+            </div>
+        }
+
+    </div>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
