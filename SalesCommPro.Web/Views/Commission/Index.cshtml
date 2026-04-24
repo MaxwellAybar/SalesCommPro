@@ -1,0 +1,33 @@
+﻿@model SalesCommPro.Web.Models.CommissionModel
+
+<h2>Sales Commission Calculator</h2>
+
+<form method="post">
+
+    <div asp-validation-summary="All"></div>
+
+    <label>Ventas</label>
+    <input asp-for="Sales" />
+
+    <label>Descuentos</label>
+    <input asp-for="Discount" />
+
+    <label>País</label>
+    <select asp-for="Country">
+        <option value="">Seleccione</option>
+        <option>India</option>
+        <option>US</option>
+        <option>UK</option>
+    </select>
+
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model != null)
+{
+    <h3>Resultado: @Model.Result</h3>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
