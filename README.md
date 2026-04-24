@@ -27,10 +27,10 @@ El sistema aplica automáticamente la tasa de comisión correspondiente a cada p
 El proyecto está organizado en 4 proyectos que representan la separación de responsabilidades:
 
 SalesCommPro/
-├── SalesCommPro.Web <- Interfaz de usuario (MVC)
-├── SalesCommPro.Application <- DTOs
-├── SalesCommPro.Domain <- Entidades del negocio
-├── SalesCommPro.Infrastructure<- Servicios (lógica de negocio)
+├── SalesCommPro.Web            <-- Interfaz de Usuario (ASP.NET Core MVC)
+├── SalesCommPro.Application    <-- Objetos de Transferencia de Datos (DTOs)
+├── SalesCommPro.Domain         <-- Entidades y Reglas del Negocio
+└── SalesCommPro.Infrastructure <-- Lógica de Cálculo y Servicios
 
 
 ---
