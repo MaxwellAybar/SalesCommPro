@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SalesCommPro.Web.styles.css" asp-append-version="true" />
 </head>
-<body style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+<body style="margin:0; height:100vh; display:flex; flex-direction:column; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
 
     <header>
-        <nav class="navbar navbar-dark bg-dark shadow-sm mb-4">
+        <nav class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-white" asp-controller="Commission" asp-action="Index">
                     SalesCommPro
@@ -20,13 +20,11 @@
         </nav>
     </header>
 
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-        <main role="main" class="w-100">
-            @RenderBody()
-        </main>
-    </div>
+    <main style="flex:1; display:flex; justify-content:center; align-items:center;">
+        @RenderBody()
+    </main>
 
-    <footer class="text-center text-light mt-4 mb-3">
+    <footer class="text-center text-light py-2">
         &copy; 2026 - SalesCommPro
     </footer>
 

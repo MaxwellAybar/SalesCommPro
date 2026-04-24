@@ -14,9 +14,24 @@ namespace SalesCommPro.Web.Controllers
             _service = service;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var model = new CommissionModel();
+
+            if (TempData["Sales"] != null)
+                model.Sales = decimal.Parse(TempData["Sales"].ToString());
+
+            if (TempData["Discount"] != null)
+                model.Discount = decimal.Parse(TempData["Discount"].ToString());
+
+            if (TempData["Country"] != null)
+                model.Country = TempData["Country"].ToString();
+
+            if (TempData["Result"] != null)
+                model.Result = decimal.Parse(TempData["Result"].ToString());
+
+            return View(model);
         }
 
         [HttpPost]
@@ -27,14 +42,19 @@ namespace SalesCommPro.Web.Controllers
 
             var dto = new CommissionDTO
             {
-                Sales = model.Sales,
-                Discount = model.Discount,
+                Sales = model.Sales.Value,
+                Discount = model.Discount.Value,
                 Country = model.Country
             };
 
-            model.Result = _service.Calculate(dto);
+            var result = _service.Calculate(dto);
 
-            return View(model);
+            TempData["Sales"] = model.Sales.ToString();
+            TempData["Discount"] = model.Discount.ToString();
+            TempData["Country"] = model.Country;
+            TempData["Result"] = result.ToString();
+
+            return RedirectToAction("Index");
         }
     }
 }
