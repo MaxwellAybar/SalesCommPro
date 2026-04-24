@@ -16,5 +16,7 @@ namespace SalesCommPro.Web.Models
         public string Country { get; set; }
 
         public decimal Result { get; set; }
+
+        public bool HasResult { get; set; }
     }
 }

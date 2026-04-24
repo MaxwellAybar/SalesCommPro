@@ -29,7 +29,10 @@ namespace SalesCommPro.Web.Controllers
                 model.Country = TempData["Country"].ToString();
 
             if (TempData["Result"] != null)
+            {
                 model.Result = decimal.Parse(TempData["Result"].ToString());
+                model.HasResult = true;
+            }
 
             return View(model);
         }
