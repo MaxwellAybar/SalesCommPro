@@ -44,7 +44,7 @@
         @if (Model.HasResult)
         {
             <div class="alert alert-success mt-3 text-center">
-                <strong>@Model.Result.ToString("C")</strong>
+                <strong>$@Model.Result.ToString("N2")</strong>
             </div>
         }
 
